@@ -7,413 +7,133 @@
     <title>LIFEINVADER</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-     <script src="js/items.js"></script>
+    <script src="js/items.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <header class="header">
-            <h1><i class="fas fa-bars"></i> Main Menu</h1>
-            <div class="alert-banner">
-                </div>
-        </header>
+    <div class="main-wrapper">
+        <aside class="sidebar">
+            <div class="logo">LIFEINVADER</div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" data-section="car-trade"><i class="fas fa-car"></i> Car Ads</a></li>
+                    <li><a href="#" data-section="house-ads"><i class="fas fa-home"></i> House Ads</a></li>
+                    <li><a href="#" data-section="clothing-ads"><i class="fas fa-tshirt"></i> Clothing Ads</a></li>
+                    <li><a href="#" data-section="items-ads"><i class="fas fa-box"></i> Items Ads</a></li>
+                    <li><a href="#" data-section="business-ads"><i class="fas fa-building"></i> Business Ads</a></li>
+                    </ul>
+            </nav>
+        </aside>
 
-        <nav class="top-bar">
-            <button class="tab-button active" onclick="showTab('car-trade')" data-tab="car-trade">Car Ads</button>
-            <button class="tab-button" onclick="showTab('house-ads')" data-tab="house-ads">House Ads</button>
-            <button class="tab-button" onclick="showTab('clothing-ads')" data-tab="clothing-ads">
-                <i class="fas fa-tshirt"></i> Clothing Ads
-            </button>
-            <button class="tab-button" onclick="showTab('items-ads')" data-tab="items-ads">
-                <i class="fas fa-box"></i> Items Ads
-            </button>
-            <button class="tab-button" onclick="showTab('business-ads')" data-tab="business-ads">
-                <i class="fas fa-building"></i> Business Ads
-            </button>
-        </nav>
-
-        <div id="car-trade" class="tab-content active">
-            <section class="tab-section card shadow">
-                <div class="card-body form-container">
-                    <h2 class="form-title">
-                        <i class="fas fa-car"></i> Car Ads Creator
-                    </h2>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-exchange-alt"></i> Transaction Type:</label>
-                        <div class="transaction-type-group">
-                            <label class="transaction-type-label buying">
-                                <input type="radio" name="transaction" value="Buying" checked>
-                                <div class="transaction-type-button d-flex align-items-center gap-2">
-                                    <i class="fas fa-credit-card"></i> Buying
-                                </div>
-                            </label>
-                            <label class="transaction-type-label selling">
-                                <input type="radio" name="transaction" value="Selling">
-                                 <div class="transaction-type-button d-flex align-items-center gap-2">
-                                    <i class="fas fa-dollar-sign"></i> Selling
-                                </div>
-                            </label>
-                        </div>
+        <div class="content-area">
+            <header class="header">
+                <h1>Main Menu</h1>
+                <div class="alert-banner">
                     </div>
+            </header>
 
-                    <div class="form-group">
-                        <label for="car-name"><i class="fas fa-car-side"></i> Enter Car Name:</label>
-                        <input type="text" id="car-name" class="form-control" autocomplete="off">
-                        <div id="car-suggestions" class="suggestion-box"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-handshake"></i> Trading Option:</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" id="trading"> Trading</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group" id="trading-car-group" style="display: none;">
-                        <label for="trading-car"><i class="fas fa-exchange-alt"></i> Trading For Car Name:</label>
-                        <input type="text" id="trading-car" class="form-control" autocomplete="off">
-                        <div id="trading-car-suggestions" class="suggestion-box"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-cog"></i> Configuration Type:</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" id="full-config"> Full</label>
-                            <label><input type="checkbox" id="partial-config"> Partial</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-plus-circle"></i> Extras:</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" id="visual"><i class="fas fa-paint-brush"></i> Visual Upgrades</label>
-                            <label><input type="checkbox" id="insurance"><i class="fas fa-shield-alt"></i> Insurance</label>
-                            <label><input type="checkbox" id="tuning"><i class="fas fa-wrench"></i> Tuning Parts</label>
-                            <label><input type="checkbox" id="turbo"><i class="fas fa-rocket"></i> Turbo Kit</label>
-                            <label><input type="checkbox" id="drift"><i class="fas fa-car-side"></i> Drift Kit</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="budget"><i class="fas fa-dollar-sign"></i> Enter Price/Budget:</label>
-                        <input type="text" id="budget" class="form-control" autocomplete="off">
-                    </div>
-
-                    <div class="button-group">
-                        <button id="car-submit-btn" class="btn btn-primary generate-button"><i class="fas fa-magic"></i> Submit</button>
-                        <button id="car-copy-btn" class="btn btn-secondary copy-button"><i class="fas fa-copy"></i> Copy</button>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-file-alt"></i> Output:</label>
-                        <div id="car-output" class="output-box"></div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div id="house-ads" class="tab-content">
-            <section class="tab-section card shadow">
-                <div class="card-body form-container">
-                    <h2 class="form-title">
-                        <i class="fas fa-home"></i> House Ads Creator
-                    </h2>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-exchange-alt"></i> Transaction Type:</label>
-                        <div class="transaction-type-group">
-                            <label class="transaction-type-label selling">
-                                <input type="radio" name="house-transaction" value="Selling" checked>
-                                 <div class="transaction-type-button d-flex align-items-center gap-2">
-                                    <i class="fas fa-dollar-sign"></i> Selling
-                                </div>
-                            </label>
-                            <label class="transaction-type-label buying">
-                                <input type="radio" name="house-transaction" value="Buying">
-                                 <div class="transaction-type-button d-flex align-items-center gap-2">
-                                    <i class="fas fa-credit-card"></i> Buying
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="house-number"><i class="fas fa-hashtag"></i> House Number (Optional):</label>
-                        <input type="text" id="house-number" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label><input type="checkbox" id="apartment"><i class="fas fa-building"></i> Apartment</label>
-                    </div>
-
-                    <div class="form-group" id="apartment-number-group" style="display: none;">
-                        <label for="apartment-number"><i class="fas fa-hashtag"></i> Apartment No. (Optional):</label>
-                        <input type="text" id="apartment-number" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-warehouse"></i> Garage Space (Optional):</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" id="garage-2"> 2 g.s.</label>
-                            <label><input type="checkbox" id="garage-5"> 5 g.s.</label>
-                            <label><input type="checkbox" id="garage-9"> 9 g.s.</label>
-                            <label><input type="checkbox" id="garage-25"> 25 g.s.</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-warehouse"></i> Warehouse Space (Optional):</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" id="warehouse-3"> 3 w.h.</label>
-                            <label><input type="checkbox" id="warehouse-4"> 4 w.h.</label>
-                            <label><input type="checkbox" id="warehouse-5"> 5 w.h.</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-cogs"></i> Features (Optional):</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" id="garden"><i class="fas fa-tree"></i> Garden</label>
-                            <label><input type="checkbox" id="custom-interior"><i class="fas fa-couch"></i> Custom Interior</label>
-                            <label><input type="checkbox" id="house-insurance"><i class="fas fa-shield-alt"></i> Insurance</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-ellipsis-h"></i> Others (Optional):</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" id="helipad"><i class="fas fa-helicopter"></i> Helipad</label>
-                            <label><input type="checkbox" id="tennis-court"><i class="fas fa-tennis-ball"></i> Tennis Court</label>
-                            <label><input type="checkbox" id="driveway"><i class="fas fa-road"></i> Long Driveway</label>
-                            <label><input type="checkbox" id="swimming-pool"><i class="fas fa-swimming-pool"></i> Swimming Pool</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="view"><i class="fas fa-eye"></i> View (Optional):</label>
-                        <select id="view" class="form-control">
-                            <option value="">Select view</option>
-                            <option value="a nice view">Nice view</option>
-                            <option value="a beautiful view">Beautiful view</option>
-                            <option value="a great view">Great view</option>
-                            <option value="a good view">Good view</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="location"><i class="fas fa-map-marker-alt"></i> Location (Optional):</label>
-                        <input type="text" id="location" class="form-control" autocomplete="off">
-                        <div id="location-suggestions" class="suggestion-box"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="house-price"><i class="fas fa-dollar-sign"></i> Price/Budget (Optional):</label>
-                        <input type="text" id="house-price" class="form-control" autocomplete="off">
-                    </div>
-
-                    <div class="button-group">
-                         <button id="house-submit-btn" class="btn btn-primary generate-button"><i class="fas fa-magic"></i> Generate Ad</button>
-                        <button id="house-copy-btn" class="btn btn-secondary copy-button"><i class="fas fa-copy"></i> Copy</button>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-file-alt"></i> Output:</label>
-                        <div id="house-output" class="output-box"></div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div id="clothing-ads" class="tab-content">
-             <section class="tab-section card shadow">
-                <div class="card-body form-container">
-                    <h2 class="form-title">
-                        <i class="fas fa-tshirt"></i> Clothing Ads Creator
-                    </h2>
-
-                    <form id="clothingForm">
-                        <div class="form-group">
-                            <label class="form-label"><i class="fas fa-exchange-alt"></i> Transaction Type:</label>
-                            <div class="transaction-radio-group">
-                                <label class="transaction-radio-label buying">
-                                    <input class="form-check-input" type="radio" name="clothing-transaction" value="Buying" checked> Buying
-                                </label>
-                                <label class="transaction-radio-label selling">
-                                    <input class="form-check-input" type="radio" name="clothing-transaction" value="Selling"> Selling
-                                </label>
-                            </div>
-                        </div>
+            <div id="car-trade" class="tab-content">
+                 <section class="tab-section card shadow">
+                    <div class="card-body form-container">
+                        <h2 class="form-title">
+                            <i class="fas fa-car"></i> Car Ads Creator
+                        </h2>
 
                         <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="clothing-trading"> <label class="form-check-label" for="clothing-trading"><i class="fas fa-handshake"></i> Trading Option</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label"><i class="fas fa-fill-drip"></i> Color:</label>
-                            <select class="form-select" id="clothing-color"> <option value="">Select a color</option>
-                                <option value="red">Red</option>
-                                <option value="blue">Blue</option>
-                                <option value="green">Green</option>
-                                <option value="black">Black</option>
-                                <option value="white">White</option>
-                                <option value="yellow">Yellow</option>
-                                <option value="purple">Purple</option>
-                                <option value="orange">Orange</option>
-                                <option value="pink">Pink</option>
-                                <option value="gray">Gray</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label"><i class="fas fa-tags"></i> Clothing Name:</label>
-                            <div class="position-relative">
-                                <input type="text" class="form-control" id="clothing-name" placeholder="Start typing..."> <div id="clothing-suggestions" class="suggestion-box"></div> </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label"><i class="fas fa-list-alt"></i> Type:</label>
-                            <select class="form-select" id="clothing-type"> <option value="">Select a type</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label"><i class="fas fa-venus-mars"></i> Gender:</label>
-                            <div class="d-flex gap-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="clothing-gender" value="" checked> <label class="form-check-label">Any</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="clothing-gender" value=" for men"> <label class="form-check-label">Men</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="clothing-gender" value=" for women"> <label class="form-check-label">Women</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="clothing-price"><i class="fas fa-dollar-sign"></i> Price:</label> <input type="text" class="form-control" id="clothing-price" placeholder="e.g. 400000"> </div>
-
-                        <div class="form-group">
-                            <label class="form-label"><i class="fas fa-file-alt"></i> Output:</label>
-                            <div id="clothing-output" class="output-box"> Your clothing advertisement will appear here...
-                            </div>
-                        </div>
-
-                        <div class="button-group">
-                            <button type="button" class="btn btn-primary generate-button" id="clothing-submit-btn"> <i class="fas fa-magic"></i> Generate Ad
-                            </button>
-                            <button type="button" class="btn btn-secondary copy-button" id="clothing-copy-btn"> <i class="fas fa-copy"></i> Copy
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </section>
-        </div>
-
-
-        <div id="items-ads" class="tab-content">
-             <section class="tab-section card shadow">
-                <div class="card-body form-container">
-                    <h2 class="form-title">
-                        <i class="fas fa-box"></i> Item Ads Creator
-                    </h2>
-
-                    <form id="transactionForm">
-                        <div class="form-group">
-                            <label><i class="fas fa-list-alt"></i> Transaction Type:</label>
-                            <div class="transaction-radio-group">
-                                <label class="transaction-radio-label buying">
-                                    <input type="radio" name="transactionType" value="buying" class="d-none"> Buying
-                                </label>
-                                <label class="transaction-radio-label selling">
-                                    <input type="radio" name="transactionType" value="selling" class="d-none" checked> Selling
-                                </label>
-                            </div>
-                             <label class="checkbox-button-label mt-3" for="tradingOption">
-                                <input type="checkbox" id="tradingOption" class="d-none">
-                                <i class="fas fa-exchange-alt me-2"></i> Trading Option
-                            </label>
-                        </div>
-
-                        <hr>
-
-                        <div class="form-group">
-                            <div class="d-flex justify-content-between align-items-center mb-3 flex-column flex-sm-row">
-                                <h3 class="h5 mb-0" id="itemsTitle">Items</h3>
-                                <div class="item-controls d-flex align-items-center gap-2">
-                                    <button type="button" class="btn btn-sm btn-light" id="removeItem">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <span class="text-muted" id="itemCount">1 of 3</span>
-                                    <button type="button" class="btn btn-sm btn-light" id="addItem">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                     <label class="checkbox-button-label ms-3" for="inBulkOption">
-                                        <input type="checkbox" id="inBulkOption" class="d-none">
-                                        In Bulk
-                                    </label>
-                                </div>
-                            </div>
-                             <div id="itemsContainer">
-                                 </div>
-                        </div>
-
-                        <hr>
-
-                        <div class="form-group">
-                            <h3 class="h5 mb-3">Pricing</h3>
-                             <div id="pricesContainer">
-                                 </div>
-                             <div class="form-check mt-3 respectively-check d-none">
-                                <input type="checkbox" class="form-check-input" id="respectively">
-                                <label class="form-check-label d-flex align-items-center gap-2" for="respectively">
-                                    <i class="fas fa-chevron-right"></i> Use "respectively" for multiple prices
-                                </label>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        <div class="form-group">
-                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                <label class="mb-0"><i class="fas fa-file-alt"></i> Transaction Preview:</label>
-                                <button type="button" class="btn btn-secondary copy-button btn-sm d-flex align-items-center gap-2" id="copyButton">
-                                    <i class="fas fa-copy"></i> <span class="d-none d-sm-inline">Copy</span>
-                                </button>
-                             </div>
-                            <div id="preview" class="output-box">
-                                Complete the form to generate your transaction description
-                            </div>
-                        </div>
-
-                        <div class="button-group">
-                             </div>
-                    </form>
-                </div>
-            </section>
-         </div>
-        <div id="business-ads" class="tab-content">
-             <section class="tab-section card shadow">
-                <div class="card-body form-container">
-                    <h2 class="form-title">
-                        <i class="fas fa-building"></i> Business Ads Creator
-                    </h2>
-
-                    <form id="businessForm"> <div class="form-group">
                             <label><i class="fas fa-exchange-alt"></i> Transaction Type:</label>
-                            <div class="transaction-type-group"> <label class="transaction-type-label selling"> <input type="radio" name="business-transaction" value="Selling" checked>
+                            <div class="transaction-type-group">
+                                <label class="transaction-type-label buying">
+                                    <input type="radio" name="transaction" value="Buying" checked>
                                     <div class="transaction-type-button d-flex align-items-center gap-2">
+                                        <i class="fas fa-credit-card"></i> Buying
+                                    </div>
+                                </label>
+                                <label class="transaction-type-label selling">
+                                    <input type="radio" name="transaction" value="Selling">
+                                     <div class="transaction-type-button d-flex align-items-center gap-2">
                                         <i class="fas fa-dollar-sign"></i> Selling
                                     </div>
                                 </label>
-                                <label class="transaction-type-label buying"> <input type="radio" name="business-transaction" value="Buying">
-                                    <div class="transaction-type-button d-flex align-items-center gap-2">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="car-name"><i class="fas fa-car-side"></i> Enter Car Name:</label>
+                            <input type="text" id="car-name" class="form-control" autocomplete="off">
+                            <div id="car-suggestions" class="suggestion-box"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-handshake"></i> Trading Option:</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="trading"> Trading</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="trading-car-group" style="display: none;">
+                            <label for="trading-car"><i class="fas fa-exchange-alt"></i> Trading For Car Name:</label>
+                            <input type="text" id="trading-car" class="form-control" autocomplete="off">
+                            <div id="trading-car-suggestions" class="suggestion-box"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-cog"></i> Configuration Type:</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="full-config"> Full</label>
+                                <label><input type="checkbox" id="partial-config"> Partial</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-plus-circle"></i> Extras:</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="visual"><i class="fas fa-paint-brush"></i> Visual Upgrades</label>
+                                <label><input type="checkbox" id="insurance"><i class="fas fa-shield-alt"></i> Insurance</label>
+                                <label><input type="checkbox" id="tuning"><i class="fas fa-wrench"></i> Tuning Parts</label>
+                                <label><input type="checkbox" id="turbo"><i class="fas fa-rocket"></i> Turbo Kit</label>
+                                <label><input type="checkbox" id="drift"><i class="fas fa-car-side"></i> Drift Kit</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget"><i class="fas fa-dollar-sign"></i> Enter Price/Budget:</label>
+                            <input type="text" id="budget" class="form-control" autocomplete="off">
+                        </div>
+
+                        <div class="button-group">
+                            <button id="car-submit-btn" class="btn btn-primary generate-button"><i class="fas fa-magic"></i> Submit</button>
+                            <button id="car-copy-btn" class="btn btn-secondary copy-button"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-file-alt"></i> Output:</label>
+                            <div id="car-output" class="output-box"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="house-ads" class="tab-content">
+                 <section class="tab-section card shadow">
+                    <div class="card-body form-container">
+                        <h2 class="form-title">
+                            <i class="fas fa-home"></i> House Ads Creator
+                        </h2>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-exchange-alt"></i> Transaction Type:</label>
+                            <div class="transaction-type-group">
+                                <label class="transaction-type-label selling">
+                                    <input type="radio" name="house-transaction" value="Selling" checked>
+                                     <div class="transaction-type-button d-flex align-items-center gap-2">
+                                        <i class="fas fa-dollar-sign"></i> Selling
+                                    </div>
+                                </label>
+                                <label class="transaction-type-label buying">
+                                    <input type="radio" name="house-transaction" value="Buying">
+                                     <div class="transaction-type-button d-flex align-items-center gap-2">
                                         <i class="fas fa-credit-card"></i> Buying
                                     </div>
                                 </label>
@@ -421,66 +141,347 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="business-name"><i class="fas fa-store"></i> Business Name:</label>
-                            <input type="text" id="business-name" class="form-control" autocomplete="off"
-                                placeholder="Enter business name">
-                            <div id="business-name-suggestions" class="suggestion-box"></div>
+                            <label for="house-number"><i class="fas fa-hashtag"></i> House Number (Optional):</label>
+                            <input type="text" id="house-number" class="form-control">
                         </div>
 
-                        <div class="form-group" id="plantation-category-group" style="display: none;">
-                            <label><i class="fas fa-tree"></i> Plantation Category:</label>
-                            <div class="radio-group">
-                                <label><input type="radio" name="plantation-category" value="10-Bed"> 10-Bed</label>
-                                <label><input type="radio" name="plantation-category" value="15-Bed"> 15-Bed</label>
-                                <label><input type="radio" name="plantation-category" value="20-Bed"> 20-Bed</label>
+                        <div class="form-group">
+                            <label><input type="checkbox" id="apartment"><i class="fas fa-building"></i> Apartment</label>
+                        </div>
+
+                        <div class="form-group" id="apartment-number-group" style="display: none;">
+                            <label for="apartment-number"><i class="fas fa-hashtag"></i> Apartment No. (Optional):</label>
+                            <input type="text" id="apartment-number" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-warehouse"></i> Garage Space (Optional):</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="garage-2"> 2 g.s.</label>
+                                <label><input type="checkbox" id="garage-5"> 5 g.s.</label>
+                                <label><input type="checkbox" id="garage-9"> 9 g.s.</label>
+                                <label><input type="checkbox" id="garage-25"> 25 g.s.</label>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="business-number"><i class="fas fa-hashtag"></i> Business Number (Optional):</label>
-                            <input type="text" id="business-number" class="form-control" autocomplete="off"
-                                placeholder="Enter business number">
+                            <label><i class="fas fa-warehouse"></i> Warehouse Space (Optional):</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="warehouse-3"> 3 w.h.</label>
+                                <label><input type="checkbox" id="warehouse-4"> 4 w.h.</label>
+                                <label><input type="checkbox" id="warehouse-5"> 5 w.h.</label>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="business-location"><i class="fas fa-map-marker-alt"></i> Location:</label>
-                            <input type="text" id="business-location" class="form-control" autocomplete="off"
-                                placeholder="Enter location">
-                            <div id="business-location-suggestions" class="suggestion-box"></div>
+                            <label><i class="fas fa-cogs"></i> Features (Optional):</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="garden"><i class="fas fa-tree"></i> Garden</label>
+                                <label><input type="checkbox" id="custom-interior"><i class="fas fa-couch"></i> Custom Interior</label>
+                                <label><input type="checkbox" id="house-insurance"><i class="fas fa-shield-alt"></i> Insurance</label>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="business-price"><i class="fas fa-dollar-sign"></i> Price/Budget (Optional):</label>
-                            <input type="text" id="business-price" class="form-control" autocomplete="off"
-                                placeholder="Enter price or budget">
+                            <label><i class="fas fa-ellipsis-h"></i> Others (Optional):</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="helipad"><i class="fas fa-helicopter"></i> Helipad</label>
+                                <label><input type="checkbox" id="tennis-court"><i class="fas fa-tennis-ball"></i> Tennis Court</label>
+                                <label><input type="checkbox" id="driveway"><i class="fas fa-road"></i> Long Driveway</label>
+                                <label><input type="checkbox" id="swimming-pool"><i class="fas fa-swimming-pool"></i> Swimming Pool</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="view"><i class="fas fa-eye"></i> View (Optional):</label>
+                            <select id="view" class="form-control">
+                                <option value="">Select view</option>
+                                <option value="a nice view">Nice view</option>
+                                <option value="a beautiful view">Beautiful view</option>
+                                <option value="a great view">Great view</option>
+                                <option value="a good view">Good view</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location"><i class="fas fa-map-marker-alt"></i> Location (Optional):</label>
+                            <input type="text" id="location" class="form-control" autocomplete="off">
+                            <div id="location-suggestions" class="suggestion-box"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="house-price"><i class="fas fa-dollar-sign"></i> Price/Budget (Optional):</label>
+                            <input type="text" id="house-price" class="form-control" autocomplete="off">
+                        </div>
+
+                        <div class="button-group">
+                             <button id="house-submit-btn" class="btn btn-primary generate-button"><i class="fas fa-magic"></i> Generate Ad</button>
+                            <button id="house-copy-btn" class="btn btn-secondary copy-button"><i class="fas fa-copy"></i> Copy</button>
                         </div>
 
                         <div class="form-group">
                             <label><i class="fas fa-file-alt"></i> Output:</label>
-                            <div id="business-output" class="output-box"></div>
+                            <div id="house-output" class="output-box"></div>
                         </div>
+                    </div>
+                </section>
+            </div>
 
-                        <div class="button-group">
-                            <button id="business-submit-btn" class="btn btn-primary generate-button">
-                                <i class="fas fa-magic"></i> Generate Ad
-                            </button>
-                            <button id="business-copy-btn" class="btn btn-secondary copy-button">
-                                <i class="fas fa-copy"></i> Copy
-                            </button>
-                        </div>
-                    </form>
+            <div id="clothing-ads" class="tab-content">
+                 <section class="tab-section card shadow">
+                    <div class="card-body form-container">
+                        <h2 class="form-title">
+                            <i class="fas fa-tshirt"></i> Clothing Ads Creator
+                        </h2>
+
+                        <form id="clothingForm">
+                            <div class="form-group">
+                                <label class="form-label"><i class="fas fa-exchange-alt"></i> Transaction Type:</label>
+                                <div class="transaction-radio-group">
+                                    <label class="transaction-radio-label buying">
+                                        <input class="form-check-input" type="radio" name="clothing-transaction" value="Buying" checked> Buying
+                                    </label>
+                                    <label class="transaction-radio-label selling">
+                                        <input class="form-check-input" type="radio" name="clothing-transaction" value="Selling"> Selling
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="clothing-trading"> <label class="form-check-label" for="clothing-trading"><i class="fas fa-handshake"></i> Trading Option</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><i class="fas fa-fill-drip"></i> Color:</label>
+                                <select class="form-select" id="clothing-color"> <option value="">Select a color</option>
+                                    <option value="red">Red</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="green">Green</option>
+                                    <option value="black">Black</option>
+                                    <option value="white">White</option>
+                                    <option value="yellow">Yellow</option>
+                                    <option value="purple">Purple</option>
+                                    <option value="orange">Orange</option>
+                                    <option value="pink">Pink</option>
+                                    <option value="gray">Gray</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><i class="fas fa-tags"></i> Clothing Name:</label>
+                                <div class="position-relative">
+                                    <input type="text" class="form-control" id="clothing-name" placeholder="Start typing..."> <div id="clothing-suggestions" class="suggestion-box"></div> </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><i class="fas fa-list-alt"></i> Type:</label>
+                                <select class="form-select" id="clothing-type"> <option value="">Select a type</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><i class="fas fa-venus-mars"></i> Gender:</label>
+                                <div class="d-flex gap-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="clothing-gender" value="" checked> <label class="form-check-label">Any</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="clothing-gender" value=" for men"> <label class="form-check-label">Men</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="clothing-gender" value=" for women"> <label class="form-check-label">Women</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="clothing-price"><i class="fas fa-dollar-sign"></i> Price:</label> <input type="text" class="form-control" id="clothing-price" placeholder="e.g. 400000"> </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><i class="fas fa-file-alt"></i> Output:</label>
+                                <div id="clothing-output" class="output-box"> Your clothing advertisement will appear here...
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="button" class="btn btn-primary generate-button" id="clothing-submit-btn"> <i class="fas fa-magic"></i> Generate Ad
+                                </button>
+                                <button type="button" class="btn btn-secondary copy-button" id="clothing-copy-btn"> <i class="fas fa-copy"></i> Copy
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+
+            <div id="items-ads" class="tab-content">
+                 <section class="tab-section card shadow">
+                    <div class="card-body form-container">
+                        <h2 class="form-title">
+                            <i class="fas fa-box"></i> Item Ads Creator
+                        </h2>
+
+                        <form id="transactionForm">
+                            <div class="form-group">
+                                <label><i class="fas fa-list-alt"></i> Transaction Type:</label>
+                                <div class="transaction-radio-group">
+                                    <label class="transaction-radio-label buying">
+                                        <input type="radio" name="transactionType" value="buying" class="d-none"> Buying
+                                    </label>
+                                    <label class="transaction-radio-label selling">
+                                        <input type="radio" name="transactionType" value="selling" class="d-none" checked> Selling
+                                    </label>
+                                </div>
+                                 <label class="checkbox-button-label mt-3" for="tradingOption">
+                                    <input type="checkbox" id="tradingOption" class="d-none">
+                                    <i class="fas fa-exchange-alt me-2"></i> Trading Option
+                                </label>
+                            </div>
+
+                            <hr>
+
+                            <div class="form-group">
+                                <div class="d-flex justify-content-between align-items-center mb-3 flex-column flex-sm-row">
+                                    <h3 class="h5 mb-0" id="itemsTitle">Items</h3>
+                                    <div class="item-controls d-flex align-items-center gap-2">
+                                        <button type="button" class="btn btn-sm btn-light" id="removeItem">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <span class="text-muted" id="itemCount">1 of 3</span>
+                                        <button type="button" class="btn btn-sm btn-light" id="addItem">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                         <label class="checkbox-button-label ms-3" for="inBulkOption">
+                                            <input type="checkbox" id="inBulkOption" class="d-none">
+                                            In Bulk
+                                        </label>
+                                    </div>
+                                </div>
+                                 <div id="itemsContainer">
+                                     </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="form-group">
+                                <h3 class="h5 mb-3">Pricing</h3>
+                                 <div id="pricesContainer">
+                                     </div>
+                                 <div class="form-check mt-3 respectively-check d-none">
+                                    <input type="checkbox" class="form-check-input" id="respectively">
+                                    <label class="form-check-label d-flex align-items-center gap-2" for="respectively">
+                                        <i class="fas fa-chevron-right"></i> Use "respectively" for multiple prices
+                                    </label>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="form-group">
+                                 <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <label class="mb-0"><i class="fas fa-file-alt"></i> Transaction Preview:</label>
+                                    <button type="button" class="btn btn-secondary copy-button btn-sm d-flex align-items-center gap-2" id="copyButton">
+                                        <i class="fas fa-copy"></i> <span class="d-none d-sm-inline">Copy</span>
+                                    </button>
+                                 </div>
+                                <div id="preview" class="output-box">
+                                    Complete the form to generate your transaction description
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                 </div>
+                        </form>
+                    </div>
+                </section>
+             </div>
+            <div id="business-ads" class="tab-content">
+                 <section class="tab-section card shadow">
+                    <div class="card-body form-container">
+                        <h2 class="form-title">
+                            <i class="fas fa-building"></i> Business Ads Creator
+                        </h2>
+
+                        <form id="businessForm"> <div class="form-group">
+                                <label><i class="fas fa-exchange-alt"></i> Transaction Type:</label>
+                                <div class="transaction-type-group"> <label class="transaction-type-label selling"> <input type="radio" name="business-transaction" value="Selling" checked>
+                                        <div class="transaction-type-button d-flex align-items-center gap-2">
+                                            <i class="fas fa-dollar-sign"></i> Selling
+                                        </div>
+                                    </label>
+                                    <label class="transaction-type-label buying"> <input type="radio" name="business-transaction" value="Buying">
+                                        <div class="transaction-type-button d-flex align-items-center gap-2">
+                                            <i class="fas fa-credit-card"></i> Buying
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="business-name"><i class="fas fa-store"></i> Business Name:</label>
+                                <input type="text" id="business-name" class="form-control" autocomplete="off"
+                                    placeholder="Enter business name">
+                                <div id="business-name-suggestions" class="suggestion-box"></div>
+                            </div>
+
+                            <div class="form-group" id="plantation-category-group" style="display: none;">
+                                <label><i class="fas fa-tree"></i> Plantation Category:</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="plantation-category" value="10-Bed"> 10-Bed</label>
+                                    <label><input type="radio" name="plantation-category" value="15-Bed"> 15-Bed</label>
+                                    <label><input type="radio" name="plantation-category" value="20-Bed"> 20-Bed</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="business-number"><i class="fas fa-hashtag"></i> Business Number (Optional):</label>
+                                <input type="text" id="business-number" class="form-control" autocomplete="off"
+                                    placeholder="Enter business number">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="business-location"><i class="fas fa-map-marker-alt"></i> Location:</label>
+                                <input type="text" id="business-location" class="form-control" autocomplete="off"
+                                    placeholder="Enter location">
+                                <div id="business-location-suggestions" class="suggestion-box"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="business-price"><i class="fas fa-dollar-sign"></i> Price/Budget (Optional):</label>
+                                <input type="text" id="business-price" class="form-control" autocomplete="off"
+                                    placeholder="Enter price or budget">
+                            </div>
+
+                            <div class="form-group">
+                                <label><i class="fas fa-file-alt"></i> Output:</label>
+                                <div id="business-output" class="output-box"></div>
+                            </div>
+
+                            <div class="button-group">
+                                <button id="business-submit-btn" class="btn btn-primary generate-button">
+                                    <i class="fas fa-magic"></i> Generate Ad
+                                </button>
+                                <button id="business-copy-btn" class="btn btn-secondary copy-button">
+                                    <i class="fas fa-copy"></i> Copy
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+
+            <div id="notification" class="notification">Copied to clipboard!</div>
+
+            <div id="errorPopup" class="error-popup">
+                <div class="popup-content">
+                    <i class="fas fa-ban"></i>
+                    <p>You are not permitted to access this page.</p>
+                    <button id="errorOkButton" class="popup-button">OK</button>
                 </div>
-            </section>
-        </div>
-
-
-        <div id="notification" class="notification">Copied to clipboard!</div>
-
-        <div id="errorPopup" class="error-popup">
-            <div class="popup-content">
-                <i class="fas fa-ban"></i>
-                <p>You are not permitted to access this page.</p>
-                <button id="errorOkButton" class="popup-button">OK</button>
             </div>
         </div>
     </div>
@@ -500,8 +501,13 @@
     <script src="js/carAds.js"></script>
     <script src="js/houseAds.js"></script>
     <script src="js/clothing.js"></script>
-     <script src="js/business.js"></script>
+    <script src="js/business.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
+        // Inline script for handling transaction type radio buttons and checkbox buttons
+        // This script is kept here to ensure it runs after the DOM is loaded and before other scripts might interact with these elements.
         document.addEventListener('DOMContentLoaded', () => {
             // Script for Transaction Type Radio Buttons
             const transactionRadioGroups = document.querySelectorAll('.transaction-radio-group, .transaction-type-group'); // Include items transaction group
@@ -611,73 +617,15 @@
                     // TransactionForm instance will listen for this change
                 });
             }
-
-
-            // Initialize the first tab on page load
-            showTab('car-trade'); // Show the car ads tab by default
         });
 
-        // Basic tab switching functionality (ensure this is compatible with your js/main.js)
-        function showTab(tabId) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.getElementById(tabId).classList.add('active');
-
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => {
-                button.classList.remove('active');
-            });
-             // Find the button that corresponds to the clicked tab
-            const activeButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
-             if (activeButton) {
-                activeButton.classList.add('active');
-            }
-        }
-
+        // The showTab function is now handled in main.js
         // Assuming showNotification and showErrorPopup functions are defined in main.js or here
         // If not, you would need to define them or ensure main.js is loaded before other scripts
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            if (notification) {
-                notification.textContent = message;
-                notification.classList.add('show');
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 2000);
-            }
-        }
-
-        function showErrorPopup(message) {
-             const errorPopup = document.getElementById('errorPopup');
-             const popupContent = errorPopup ? errorPopup.querySelector('.popup-content p') : null;
-             const errorOkButton = errorPopup ? errorPopup.querySelector('#errorOkButton') : null;
-
-             if (errorPopup && popupContent && errorOkButton) {
-                 popupContent.textContent = message;
-                 errorPopup.classList.add('show');
-
-                 // Close popup when OK is clicked
-                 errorOkButton.onclick = () => {
-                     errorPopup.classList.remove('show');
-                 };
-
-                 // Close popup when clicking outside (optional)
-                 errorPopup.onclick = (event) => {
-                     if (event.target === errorPopup) {
-                         errorPopup.classList.remove('show');
-                     }
-                 };
-             } else {
-                 // Fallback to alert if popup elements are not found
-                 alert('Error: ' + message);
-             }
-         }
-
-
+        // Keeping placeholder definitions here for clarity if main.js is not used
+        // function showNotification(message) { ... }
+        // function showErrorPopup(message) { ... }
     </script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

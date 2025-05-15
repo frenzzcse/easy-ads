@@ -458,10 +458,24 @@ class TransactionForm {
      handleCopy() {
         const button = document.getElementById('copyButton');
         const originalContent = button.innerHTML;
+        const previewContent = this.preview.textContent;
+        const placeholderText = 'Complete the form to generate your transaction description';
+
+        // Only copy if the preview content is not the placeholder text
+        if (previewContent === placeholderText) {
+            // Optionally, show a message to the user that there's nothing to copy yet
+            if (typeof showNotification === 'function') {
+                showNotification('Please fill out the form first.');
+            } else {
+                console.log('Please fill out the form first.');
+            }
+            return; // Stop the copy process
+        }
+
 
         // Create a temporary textarea element to hold the text
         const tempTextArea = document.createElement('textarea');
-        tempTextArea.value = this.preview.textContent;
+        tempTextArea.value = previewContent; // Use the actual preview content
         document.body.appendChild(tempTextArea);
 
         // Select the text in the textarea
