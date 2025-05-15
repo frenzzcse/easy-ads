@@ -1,0 +1,728 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    /* Added background image properties */
+    background-image: url('bgimg.jpg');
+    /* Path to your background image */
+    background-size: cover;
+    /* Make the background image cover the entire body */
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    background-position: center;
+    /* Center the background image */
+    background-attachment: fixed;
+    /* Keep the background image fixed while scrolling */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    /* Adjusted margin for consistency with index.html */
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Header Styles */
+header {
+    padding: 1rem 0;
+}
+
+/* Top Navigation Bar */
+.top-bar {
+    display: flex;
+    justify-content: center;
+    background-color: #3498db;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tab-button {
+    background-color: #fff;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    color: #555;
+    font-size: 1em;
+    font-weight: 500;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tab-button a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tab-button:hover,
+.tab-button.active {
+    background-color: #2980b9;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tab Content Sections */
+.tab-content {
+    display: none;
+    animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-section {
+    padding: 20px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: rgba(233, 245, 255, 0.9);
+    margin-bottom: 25px;
+}
+
+/* Styles from Business.css for card and form container */
+.card.shadow {
+    border: 2px solid #007bff;
+    /* Adds a blue border */
+    background-color: rgba(233, 245, 255, 0.9);
+    /* Made the background slightly transparent using rgba */
+    padding: 20px;
+    /* Add some padding inside the box */
+    border-radius: 12px;
+    /* Ensure rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Deeper shadow */
+}
+
+.form-container {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Slightly transparent white */
+    border-radius: 8px;
+    /* Added border-radius for the inner container */
+}
+
+
+.form-title {
+    font-size: 2.2rem;
+    /* Increased font size */
+    color: #0056b3;
+    /* Changes the color of the title */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+    /* Light border */
+    font-weight: 600;
+    /* Bold font weight */
+}
+
+.form-title i {
+    margin-right: 0.5rem;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1.75rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: #555;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+label i {
+    margin-right: 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+    border-color: #00bfff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 191, 255, 0.25);
+    outline: none;
+}
+
+/* Style for standard radio and checkbox groups */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.radio-group label,
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+    color: #444;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+    margin: 0;
+    margin-right: 0.5rem;
+}
+
+/* Custom styles for Transaction Type radio buttons */
+.transaction-radio-group,
+.transaction-type-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.transaction-radio-label,
+.transaction-type-label {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ced4da;
+    padding-right: 2rem;
+    position: relative;
+}
+
+.transaction-radio-label input[type="radio"],
+.transaction-type-label input[type="radio"] {
+    display: none;
+}
+
+.transaction-radio-label.selling,
+.transaction-type-label.selling {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+.transaction-radio-label.buying,
+.transaction-type-label.buying {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.transaction-radio-label:hover,
+.transaction-type-label:hover {
+    opacity: 0.9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-radio-label.active,
+.transaction-type-label.active {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.transaction-radio-label.active::after,
+.transaction-type-label.active::after {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.transaction-type-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+.output-box {
+    background-color: #f8f8fa;
+    padding: 1.25rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    min-height: 4rem;
+    word-wrap: break-word;
+    color: #444;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.1s, box-shadow 0.1s;
+    font-weight: 500;
+}
+
+.btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles from Business.css for button colors and shadows */
+.generate-button {
+    background-color: #00bfff;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Shadow */
+}
+
+.generate-button:hover {
+    background-color: #0099cc;
+    /* Darker shade on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow on hover */
+}
+
+.copy-button {
+    background-color: #e0e0e0;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Lighter shadow */
+}
+
+.copy-button:hover {
+    background-color: #d1d1d1;
+    /* Slightly darker on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    /* Increased shadow on hover */
+}
+
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.notification.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Error Popup Styles */
+.error-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.error-popup.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+.popup-content i {
+    color: #e74c3c;
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.popup-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.popup-button:hover {
+    background-color: #c0392b;
+}
+
+
+/* Tables */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: 600;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.info-card {
+    display: inline-block;
+}
+
+.info-card__icon {}
+
+.info-card__text {}
+
+.discord-link {
+    color: #7289da;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.discord-link:hover {
+    text-decoration: underline;
+}
+
+.input-group {
+    position: relative;
+    /* Ensure the input group is the positioning context */
+}
+
+.suggestions {
+    position: absolute;
+    /* Position the suggestions box relative to the input group */
+    top: 100%;
+    /* Place it directly below the input field */
+    left: 0;
+    width: 100%;
+    /* Match the width of the input field */
+    z-index: 1000;
+    /* Ensure it appears above other elements */
+    background-color: white;
+    /* Ensure the background is visible */
+    border: 1px solid #ccc;
+    /* Add a border for better visibility */
+    border-top: none;
+    /* Optional: Remove the top border to blend with the input */
+    border-radius: 0 0 4px 4px;
+    /* Rounded corners for the bottom */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+    max-height: 200px;
+    /* Limit the height to avoid overflow */
+    overflow-y: auto;
+    /* Add scroll for long lists */
+}
+
+/* Suggestion Box Styles */
+.suggestion-box {
+    border-top: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    width: calc(100% - 2px);
+    z-index: 10;
+    /* background-color: #a50000; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: -10px;
+}
+
+.suggestion-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    color: #333;
+}
+
+.suggestion-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Custom Checkbox Button Styles (Each, In Bulk, Trading Option) */
+.checkbox-button-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #e9ecef;
+    color: #495057;
+    position: relative;
+    padding-right: 1.75rem;
+    font-size: 0.875rem;
+}
+
+.checkbox-button-label:hover {
+    border-color: #adb5bd;
+    background-color: #e2e6ea;
+}
+
+.checkbox-button-label.active {
+    border-color: #28a745;
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.checkbox-button-label::after {
+    content: "";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #28a745;
+    display: none !important;
+}
+
+.checkbox-button-label.active::after {
+    content: "\f00c";
+    display: block !important;
+}
+
+.checkbox-button-label input[type="checkbox"].d-none {
+    display: none;
+}
+
+
+/* Adjustments for item controls and in bulk checkbox alignment */
+.item-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.item-controls .btn-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    border-radius: .25rem;
+}
+
+.item-controls .btn-sm i {
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+}
+
+/* Input group text styles for items and prices */
+.item-input-group .input-group-text,
+.price-input-group .input-group-text,
+.input-group-text {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+}
+
+/* Ensure icons in input groups are styled correctly */
+.input-group-text i {
+    color: #495057;
+}
+
+/* Style for the hr separator */
+hr {
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .tab-button {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    .tab-section h2 {
+        font-size: 1.8em;
+        /* Adjusted from 1.5em */
+    }
+
+    .form-control {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .transaction-radio-label,
+    .checkbox-button-label {
+        padding: 0.5rem 1rem;
+        padding-right: 1.75rem;
+        font-size: 0.9rem;
+    }
+
+    .transaction-radio-label.active::after,
+    .checkbox-button-label.active::after {
+        right: 0.5rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 1em;
+    }
+
+    .item-controls {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .item-controls>* {
+        margin-bottom: 0.5rem;
+        margin-right: 0 !important;
+    }
+
+    .radio-group,
+    .checkbox-group {
+        gap: 1rem;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .form-title {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+
+    .item-controls {
+        align-items: stretch;
+    }
+}
