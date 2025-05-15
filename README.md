@@ -1,2 +1,1 @@
-# easy-ads
-Easy edit and post ads for li members
+#Make life of life invader members easy.
