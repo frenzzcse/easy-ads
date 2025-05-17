@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-500 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md">
+        <div class="logo text-xl font-bold ml-4">Dedicated Games Web :D</div>
+        <nav class="mr-4">
+            <ul class="flex space-x-4">
+                <li><a href="#home" class="hover:text-blue-300 no-underline">GrandRP</a></li>
+                <li><a href="#about" class="hover:text-blue-300 no-underline">Valorant</a></li>
+                <li><a href="#services" class="hover:text-blue-300 no-underline">Services</a></li>
+            
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4">
+        <section id="home" class="text-center py-16 bg-white rounded-lg shadow-lg">
+            <h2 class="text-3xl font-semibold black mb-4">GrandRP</h2>
+            <p class="text-gray-700 text-lg">GrandRP is a popular online multiplayer role-playing platform based on the game Grand Theft Auto V. Here's what you should know:
+
+Role-Playing Focus: GrandRP emphasizes immersive role-playing, where players create characters and live out their virtual lives within the game world.
+
+Community: It hosts a large community of players who engage in various in-game activities, fostering a dynamic and interactive environment.
+
+Platform: GrandRP typically operates on platforms like RAGE Multiplayer, which allows for the creation of custom servers and gameplay experiences within GTA V.
+
+Activities: Players can participate in a wide range of activities, including legal jobs, criminal activities, business ventures, and social interactions.
+
+Customization: GrandRP often features extensive customization options for characters, vehicles, and properties, allowing players to personalize their experience</p>
+        </section>
+
+        <section id="about" class="text-center py-16 bg-gray-100 rounded-lg shadow-lg mt-8">
+            <h2 class="text-3xl font-semibold red mb-4">Valorant</h2>
+            <p class="text-gray-700 text-lg">Valorant is a highly popular, free-to-play, first-person tactical shooter developed and published by Riot Games. Released in 2020, it has quickly gained a massive following due to its unique blend of precise gunplay and character-based abilities. In Valorant, players are divided into two teams of five, attacking or defending, and they compete in a best-of-25 format. Each player selects an "Agent" with unique skills, adding a strategic layer to the gameplay beyond traditional shooter mechanics. The game emphasizes teamwork, strategy, and clutch plays, making it both challenging and rewarding for players of all skill level</p>
+        </section>
+
+        <section id="services" class="text-center py-16 bg-white rounded-lg shadow-lg mt-8">
+            <h2 class="text-3xl font-semibold text-blue-600 mb-4">Want to contact for more Epic News?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div class="service-card bg-blue-100 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Our Number</h3>
+                    <p class="text-gray-600">9820376076 :)
+                        example number dont try to contact this is not real.
+                    and if it works go prankcall that shit :D </p>
+                </div>
+                <div class="service-card bg-blue-100 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Our Email.</h3>
+                    <p class="text-gray-600">Satorugojo@gmail.com
+                        with the help of our Emailyou will be able to contact us it is "Satorugojo".
+                    </p>
+                </div>
+                <div class="service-card bg-blue-100 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Our Receptionist</h3>
+                    <p class="text-gray-600">We help you reach your target audience.
+                        Our Receptionist manages the front desk, greets visitors, answers phones, and performs administrative tasks.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="text-center py-16 bg-gray-100 rounded-lg shadow-lg mt-8">
+            <h2 class="text-3xl font-semibold text-blue-600 mb-4">Contact Us</h2>
+            <p class="text-gray-700 text-lg mb-4">Email: Satorugojo@gmail.com | Phone: +91 9820376076</p>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">Contact Us Now</button>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center rounded-md mt-8">
+        <p>© 2024 My Simple Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
